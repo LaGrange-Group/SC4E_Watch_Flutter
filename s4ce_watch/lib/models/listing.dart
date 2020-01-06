@@ -1,5 +1,5 @@
 class Listing {
-  int id;
+  String id;
   String make;
   String model;
   String finish;
@@ -13,6 +13,7 @@ class Listing {
   String state;
   String photo;
   String listingLink;
+  String resourcePhoto;
 
-  Listing({this.id, this.make, this.model, this.finish, this.year, this.title, this.createdAt, this.description, this.condition, this.price, this.publishedAt, this.state, this.photo, this.listingLink});
+  Listing({this.id, this.make, this.model, this.finish, this.year, this.title, this.createdAt, this.description, this.condition, this.price, this.publishedAt, this.state, this.photo, this.listingLink, this.resourcePhoto});
 }

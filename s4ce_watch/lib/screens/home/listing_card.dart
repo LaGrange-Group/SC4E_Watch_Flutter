@@ -33,7 +33,7 @@ class ListingCard extends StatelessWidget {
               ),
               ListTile(
                 leading: Image(
-                  image: AssetImage('assets/reverb.png'),
+                  image: AssetImage('assets/${listing.resourcePhoto}'),
                 ),
                 title: Text(listing.title),
                 subtitle: RichText(

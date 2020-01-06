@@ -8,8 +8,19 @@ class ListingService {
   Future<List<Listing>> GetListings() async {
     List<Listing> listings = [];
     print('Starting request...');
-    http.Response response = await http.get('http://192.168.0.10/api/find/reverb');
+    http.Response response = await http.get('http://192.168.0.10/api/find/all');
     print('Finished request... ${response.body}');
+
+    Map<String, dynamic> listingsResponse = jsonDecode(response.body);
+    for (int i = 0; i < 5; i++){
+      print(listingsResponse['listings'][i]);
+     listings.add(Listing(id: listingsResponse['listings'][i]['id'], make: listingsResponse['listings'][i]['make'], model: listingsResponse['listings'][i]['finish'], year: listingsResponse['listings'][i]['year'], title: listingsResponse['listings'][i]['title'], createdAt: DateTime.parse(listingsResponse['listings'][i]['created_at']), description: listingsResponse['listings'][i]['description'], condition: listingsResponse['listings'][i]['condition'], price: listingsResponse['listings'][i]['price'], publishedAt: DateTime.parse(listingsResponse['listings'][i]['published_at']), state: listingsResponse['listings'][i]['state'], photo: listingsResponse['listings'][i]['photos'][0], listingLink: listingsResponse['listings'][i]['listingLink'], resourcePhoto: listingsResponse['listings'][i]['resourcePhoto']));
+    }
+
+    listings.forEach((l) {
+      print('Items <><><><><><>');
+      print(l);
+    });
 
 //
 //    print('Starting request...');
